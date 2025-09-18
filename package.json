@@ -1,0 +1,21 @@
+{
+	"name": "webapp-express",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"watch": "node --watch app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gianmarcodalfonso/webapp-express.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/gianmarcodalfonso/webapp-express/issues"
+	},
+	"homepage": "https://github.com/gianmarcodalfonso/webapp-express#readme"
+}
