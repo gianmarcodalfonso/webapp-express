@@ -5,7 +5,10 @@ const express = require("express");
 const app = express();
 
 //numero porta
-const port = 3000;
+const port = process.env.PORT;
+
+//static middleware
+app.use(express.static("public"));
 
 //rotta base
 app.get("/", (req, res) => {
