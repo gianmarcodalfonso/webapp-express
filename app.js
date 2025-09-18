@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 //rotta base
-app.get(port, () => {
+app.get("/", (req, res) => {
 	res.send("Rotta base del mio Blog");
 });
 
