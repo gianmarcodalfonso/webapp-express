@@ -7,6 +7,9 @@ const app = express();
 //numero porta
 const port = process.env.PORT;
 
+//router
+const movieRouter = require("./routers/movieRouter");
+
 //static middleware
 app.use(express.static("public"));
 
