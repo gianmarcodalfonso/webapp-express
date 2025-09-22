@@ -21,13 +21,29 @@ const show = (req, res) => {
 
 	const sqlMovie = "SELECT * FROM movies WHERE id = ?";
 
+	const sqlReviews = "SELECT * FROM reviews WHERE movie_id = ?";
+
 	connection.query(sqlMovie, [id], (err, resultMovie) => {
 		if (err)
 			return res
 				.status(500)
 				.json({ error: `Errore nell'esecuzione della query: ${err}` });
 
-		res.send(resultMovie[0]);
+		if (resultMovie.length === 0 || resultMovie[0] === null)
+			return res.status(404).json({ error: `Film non trovato` });
+
+		connection.query(sqlReviews, [id], (err, resultReviews) => {
+			if (err)
+				return res
+					.status(500)
+					.json({ error: `Errore nell'esecuzione della query: ${err}` });
+
+			const movieWithReviews = {
+				...resultMovie[0],
+				resultReviews,
+			};
+			res.send(movieWithReviews);
+		});
 	});
 };
 
