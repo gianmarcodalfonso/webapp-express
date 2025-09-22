@@ -1,6 +1,9 @@
 //import express
 const express = require("express");
 
+//import cors
+const cors = require("cors");
+
 //instanza app del metodo express
 const app = express();
 
@@ -9,6 +12,9 @@ const port = process.env.PORT;
 
 //router
 const movieRouter = require("./routers/movieRouter");
+
+//registro il middleware per cors
+app.use(cors({ origin: process.env.FE_APP }));
 
 //static middleware
 app.use(express.static("public"));
