@@ -14,11 +14,11 @@ const index = (req, res) => {
 		const movies = results.map((movie) => {
 			return {
 				...movie,
-				image: req.imagePath * movie.image,
+				image: req.imagePath + movie.image,
 			};
 		});
 
-		res.send(results);
+		res.send(movies);
 	});
 };
 
