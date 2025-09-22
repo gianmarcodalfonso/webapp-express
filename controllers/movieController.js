@@ -11,6 +11,13 @@ const index = (req, res) => {
 				.status(500)
 				.json({ error: `Errore nell'esecuzione della query: ${err}` });
 
+		const movies = results.map((movie) => {
+			return {
+				...movie,
+				image: req.imagePath * movie.image,
+			};
+		});
+
 		res.send(results);
 	});
 };
