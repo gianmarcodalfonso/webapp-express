@@ -1,6 +1,8 @@
 //import express
 const express = require("express");
 
+//importo middleware path immagini
+const imagePathMiddleware = require("./middlewares/imagePathMiddleware");
 //import cors
 const cors = require("cors");
 
@@ -13,11 +15,13 @@ const port = process.env.PORT;
 //router
 const movieRouter = require("./routers/movieRouter");
 
-//registro il middleware per cors
-app.use(cors({ origin: process.env.FE_APP }));
-
 //static middleware
 app.use(express.static("public"));
+
+app.use(imagePathMiddleware);
+
+//registro il middleware per cors
+app.use(cors({ origin: process.env.FE_APP }));
 
 //rotta base
 app.get("/", (req, res) => {
